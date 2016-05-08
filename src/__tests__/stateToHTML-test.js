@@ -22,12 +22,19 @@ let testCases = testCasesRaw.slice(1).trim().split(SEP).map((text) => {
   return {description, state, html};
 });
 
+const customStyles = {
+  BLUE_ON_RED: (content) => `<span style="color: blue; background-color: red">${content}</span>`,
+  UPPERCASE: (content) => `<span style="text-transform: uppercase">${content}</span>`,
+};
+
 describe('stateToHTML', () => {
   testCases.forEach((testCase) => {
     let {description, state, html} = testCase;
     it(`should render ${description}`, () => {
-      let contentState = convertFromRaw(state);
-      expect(stateToHTML(contentState)).toBe(html);
+      let contentState = ContentState.createFromBlockArray(
+        convertFromRaw(state)
+      );
+      expect(stateToHTML(contentState, customStyles)).toBe(html);
     });
   });
 });
