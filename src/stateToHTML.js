@@ -97,7 +97,7 @@ function getTags(blockType: string): Array<string> {
     case BLOCK_TYPE.CODE:
       return ['pre', 'code'];
     default:
-      return ['p'];
+      return ['div'];
   }
 }
 
