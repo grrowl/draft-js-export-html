@@ -31,10 +31,10 @@ const DATA_ATTRIBUTE = /^data-([a-z0-9-]+)$/;
 const ENTITY_ATTR_MAP: AttrMap = {
   [ENTITY_TYPE.LINK]: {url: 'href', rel: 'rel', target: 'target', title: 'title', className: 'class'},
   [ENTITY_TYPE.IMAGE]: {
-    src: 'src', 
-    height: 'height', 
-    width: 'width', 
-    alt: 'alt', 
+    src: 'src',
+    height: 'height',
+    width: 'width',
+    alt: 'alt',
     className: 'class',
     id: 'id',
   },
