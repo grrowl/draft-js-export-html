@@ -248,19 +248,19 @@ class MarkupGenerator {
       let content = stylePieces.map(([text, style]) => {
         let content = encodeContent(text);
         // These are reverse alphabetical by tag name.
-        if (style.has(BOLD)) {
+        if (style.has(BOLD) && !this.customStyles[BOLD]) {
           content = `<strong>${content}</strong>`;
         }
-        if (style.has(UNDERLINE)) {
+        if (style.has(UNDERLINE) && !this.customStyles[UNDERLINE]) {
           content = `<ins>${content}</ins>`;
         }
-        if (style.has(ITALIC)) {
+        if (style.has(ITALIC) && !this.customStyles[ITALIC]) {
           content = `<em>${content}</em>`;
         }
-        if (style.has(STRIKETHROUGH)) {
+        if (style.has(STRIKETHROUGH) && !this.customStyles[STRIKETHROUGH]) {
           content = `<del>${content}</del>`;
         }
-        if (style.has(CODE)) {
+        if (style.has(CODE) && !this.customStyles[CODE]) {
           // If our block type is CODE then we are already wrapping the whole
           // block in a `<code>` so don't wrap inline code elements.
           content = (blockType === BLOCK_TYPE.CODE) ? content : `<code>${content}</code>`;
